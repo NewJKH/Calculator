@@ -64,6 +64,9 @@ public class App {
 
     private static void addLog(Calculator calculator, double result) {
         calculator.addLog(result);
+//        List<Double> logs = new ArrayList<>(calculator.getLog());
+//        logs.add(result);
+//        calculator.setLog(logs);
     }
 
     private static boolean isExitCommand(Scanner scanner){

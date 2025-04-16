@@ -6,26 +6,26 @@ import java.util.List;
 import static org.calculator.level2.App.ERROR_NUMBER;
 
 public class Calculator {
-    private List<Double> history;
+    private List<Double> log;
 
     public Calculator() {
-        history = new ArrayList<>();
+        log = new ArrayList<>();
     }
 
-    public List<Double> getHistory() {
-        return history;
+    public List<Double> getLog() {
+        return log;
     }
 
-    public void setHistory(List<Double> history) {
-        this.history = history;
+    public void setLog(List<Double> history) {
+        this.log = history;
     }
 
     public void addLog(double value){
-        this.history.add(value);
+        this.log.add(value);
     }
 
     public void removeLog(){
-        this.history.remove(0);
+        this.log.remove(0);
     }
 
     public double calculate(int num, int num2, char symbol) {
