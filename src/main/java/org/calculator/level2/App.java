@@ -57,6 +57,7 @@ public class App {
         if ( !(symbol=='+' || symbol=='-' ||symbol =='/' || symbol=='*')){
             System.out.println("  기호(➕,➖,✖\\uFE0F,➗) 만 선택해주세요. ");
             return false;
+
         }
         return true;
     }
