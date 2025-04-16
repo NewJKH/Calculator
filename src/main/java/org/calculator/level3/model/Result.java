@@ -1,4 +1,4 @@
 package org.calculator.level3.model;
 
-public class Result {
+public class Result<T> {
 }

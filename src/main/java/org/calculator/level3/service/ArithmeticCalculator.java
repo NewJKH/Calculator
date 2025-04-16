@@ -1,4 +1,4 @@
 package org.calculator.level3.service;
 
-public class ArithmeticCalculator {
+public class ArithmeticCalculator<T> {
 }
