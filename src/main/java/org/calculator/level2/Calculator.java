@@ -3,6 +3,8 @@ package org.calculator.level2;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.calculator.level2.App.ERROR_NUMBER;
+
 public class Calculator {
     private List<Double> history;
 
@@ -18,16 +20,16 @@ public class Calculator {
         this.history = history;
     }
 
-    public void addHistory(double value){
+    public void addLog(double value){
         this.history.add(value);
     }
 
-    public void removeHistory(){
+    public void removeLog(){
         this.history.remove(0);
     }
 
-    public double calculate(int num, int num2, char symbol){
-        switch (symbol){
+    public double calculate(int num, int num2, char symbol) {
+        switch (symbol) {
             case '+' -> {
                 return num + num2;
             }
@@ -41,6 +43,7 @@ public class Calculator {
                 return num * num2;
             }
         }
+        return ERROR_NUMBER;
     }
 }
 

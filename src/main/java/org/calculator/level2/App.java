@@ -4,13 +4,13 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
-    private static final int ERROR_NUMBER = -99999;
+    public static final int ERROR_NUMBER = -99999;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Calculator calculator = new Calculator();
 
-        while (true) {
+        while (isExitCommand(scanner)) {
             int num = getNumberInput(" 첫번째 정수를 입력하세요: ",scanner);
             int num2 = getNumberInput(" 두번째 정수를 입력하세요: ",scanner);
             char symbol = getOperatorInput(" 기호(➕,➖,✖\uFE0F,➗) 선택: ",scanner);
@@ -21,15 +21,8 @@ public class App {
             }
 
             double result = calculator.calculate(num, num2, symbol);
-            System.out.println(" 결과: " + result);
-
-            System.out.print(" 계산을 더 진행할까요? ( exit 입력시 종료 ): ");
-            String exit = scanner.next();
-            if (exit.equals("exit")) {
-                System.out.println(" 계산기를 종료 합니다. ");
-                return;
-            }
-
+            printResult(result);
+            addLog(calculator, result);
         }
     }
 
@@ -60,6 +53,24 @@ public class App {
         }
         if ( symbol=='+' || symbol=='-' ||symbol =='/' || symbol=='*'){
             System.out.println("  기호(➕,➖,✖\\uFE0F,➗) 만 선택해주세요. ");
+            return false;
+        }
+        return true;
+    }
+
+    private static void printResult(double result){
+        System.out.println(" 결과: " + result);
+    }
+
+    private static void addLog(Calculator calculator, double result) {
+        calculator.addLog(result);
+    }
+
+    private static boolean isExitCommand(Scanner scanner){
+        System.out.print(" 계산을 더 진행할까요? ( exit 입력시 종료 ): ");
+        String exit = scanner.next();
+        if (exit.equals("exit")) {
+            System.out.println(" 계산기를 종료 합니다. ");
             return false;
         }
         return true;
