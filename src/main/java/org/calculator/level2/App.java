@@ -9,13 +9,12 @@ public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Calculator calculator = new Calculator();
-
-        while (isExitCommand(scanner)) {
+        do {
             int num = getNumberInput(" 첫번째 정수를 입력하세요: ",scanner);
             int num2 = getNumberInput(" 두번째 정수를 입력하세요: ",scanner);
             char symbol = getOperatorInput(" 기호(➕,➖,✖\uFE0F,➗) 선택: ",scanner);
 
-            if ( !validateInput(num2, symbol) ){
+            if ( !validateInput(num, num2, symbol) ){
                 System.out.println("값이 잘못 입력되어 계산기를 다시 실행합니다.");
                 continue;
             }
@@ -23,7 +22,7 @@ public class App {
             double result = calculator.calculate(num, num2, symbol);
             printResult(result);
             addLog(calculator, result);
-        }
+        } while (isExitCommand(scanner));
     }
 
     private static int getNumberInput(String message, Scanner scanner) {
@@ -46,12 +45,16 @@ public class App {
         }
     }
 
-    private static boolean validateInput(int num2, char symbol) {
+    private static boolean validateInput(int num1, int num2, char symbol) {
+        if ( num1 == ERROR_NUMBER || num2 == ERROR_NUMBER ){
+            System.out.println(" 정수부분에서 잘못된 값을 받았습니다. ");
+            return false;
+        }
         if (num2 <= 0 && symbol == '/') {
             System.out.println(" 나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다. ");
             return false;
         }
-        if ( symbol=='+' || symbol=='-' ||symbol =='/' || symbol=='*'){
+        if ( !(symbol=='+' || symbol=='-' ||symbol =='/' || symbol=='*')){
             System.out.println("  기호(➕,➖,✖\\uFE0F,➗) 만 선택해주세요. ");
             return false;
         }

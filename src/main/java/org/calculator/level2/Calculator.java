@@ -16,8 +16,8 @@ public class Calculator {
         return log;
     }
 
-    public void setLog(List<Double> history) {
-        this.log = history;
+    public void setLog(List<Double> log) {
+        this.log = log;
     }
 
     public void addLog(double value){
@@ -25,7 +25,7 @@ public class Calculator {
     }
 
     public void removeLog(){
-        this.log.remove(0);
+        if ( !log.isEmpty() ) this.log.remove(0);
     }
 
     public double calculate(int num, int num2, char symbol) {
