@@ -18,25 +18,12 @@ public class App {
     public static void main(String[] args) {
         while (true){
             Scanner scanner = new Scanner(System.in);
-            // 첫번째 입력...
+
             System.out.print(" 첫번째 정수를 입력하세요: ");
-            String val1 = scanner.next();
+            int num = scanner.nextInt();
 
-            if( val1.equals("exit")) {
-                System.out.println(" 계산기를 종료 합니다. ");
-                return;
-            }
-            // 두번째 입력...
             System.out.print(" 두번째 정수를 입력하세요: ");
-            String val2 = scanner.next();
-
-            if( val2.equals("exit")) {
-                System.out.println(" 계산기를 종료 합니다. ");
-                return;
-            }
-            // 여기서부터... 글자를 숫자로 변환.... 예..외 처리 하...고 싶다..
-            int num = Integer.parseInt(val1);
-            int num2 = Integer.parseInt(val2);
+            int num2 = scanner.nextInt();
 
             System.out.print(" 기호(➕,➖,✖\uFE0F,➗) 선택: ");
             char symbol = scanner.next().charAt(0);
@@ -54,8 +41,14 @@ public class App {
                 case '*'-> result = String.valueOf(num * num2);
                 default-> result = " 기호가 잘못되었습니다. ";
             }
-            System.out.println(" 결과 "+result);
+            System.out.println(" 결과: "+result);
 
+            System.out.print(" 계산을 더 진행할까요? ( exit 입력시 종료 ): ");
+            String exit = scanner.next();
+            if( exit.equals("exit")) {
+                System.out.println(" 계산기를 종료 합니다. ");
+                return;
+            }
             
         }
     }
