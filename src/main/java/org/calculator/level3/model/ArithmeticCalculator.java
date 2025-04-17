@@ -1,7 +1,6 @@
-package org.calculator.level3.service;
+package org.calculator.level3.model;
 
 import org.calculator.level3.enums.OperatorType;
-import org.calculator.level3.model.Calculator;
 
 public class ArithmeticCalculator {
 
