@@ -27,7 +27,7 @@ public class ArithmeticCalculator {
     }
 
     private double divide(Number a, Number b) {
-        if (b.doubleValue() == 0) throw new ArithmeticException("0으로 나눌 수 없습니다.");
+        if (b.doubleValue() == 0) throw new IllegalArgumentException("0으로 나눌 수 없습니다.");
         return a.doubleValue() / b.doubleValue();
     }
 }

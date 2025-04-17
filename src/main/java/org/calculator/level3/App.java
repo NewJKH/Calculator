@@ -1,5 +1,6 @@
 package org.calculator.level3;
 
+import org.calculator.level3.enums.OperatorType;
 import org.calculator.level3.service.CalculationService;
 import org.calculator.level3.service.ScannerService;
 
@@ -26,11 +27,21 @@ public class App {
      */
 
     public static void main(String[] args) {
+        // App 이 Controller 라고 생각
         ScannerService scannerService = new ScannerService(new Scanner(System.in));
         CalculationService calculationService = new CalculationService();
         do {
+            try {
+                Number val1 = scannerService.getNumber(" 첫번째 숫자를 입력해주세요: ");
+                OperatorType type = scannerService.getOperator(" 연산자 [ + , -, *, / ]: ");
+                Number val2 = scannerService.getNumber(" 두번째 숫자를 입력해주세요: ");
 
-
-        }while (scannerService);
+                System.out.println(val1.doubleValue());
+                System.out.println(type.name());
+                System.out.println(val2.doubleValue());
+            }catch (IllegalArgumentException e){
+                System.out.println(e.getMessage());
+            }
+        }while (scannerService.askContinue());
     }
 }

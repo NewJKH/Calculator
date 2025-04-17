@@ -5,5 +5,4 @@ public enum OperatorType {
     MINUS,
     MULTIPLY,
     DIVIDE,
-    NONE
 }

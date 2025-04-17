@@ -35,9 +35,7 @@ public class InputParser {
             case "*", "X", "MULTI" -> {
                 return OperatorType.MULTIPLY;
             }
-            default -> {
-                return OperatorType.NONE;
-            }
         }
+        throw new IllegalArgumentException("연산자 타입이 아닙니다.");
     }
 }
