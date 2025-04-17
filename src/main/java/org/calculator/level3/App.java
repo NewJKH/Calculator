@@ -29,7 +29,6 @@ public class App {
      */
 
     public static void main(String[] args) {
-        // App 이 Controller 라고 생각
         ResultRepository resultRepository = new ResultRepository();
 
         ScannerService scannerService = new ScannerService(new Scanner(System.in));
@@ -46,6 +45,7 @@ public class App {
                 System.out.println(result.doubleValue());
                 resultService.writeLog(val1,val2,type,result);
                 resultService.printLog(0);
+
 
             }catch (IllegalArgumentException e){
                 System.out.println(e.getMessage());
