@@ -5,7 +5,7 @@ import org.calculator.level3.model.Calculator;
 
 public class ArithmeticCalculator {
 
-    public <T extends Number> Number calculate(T num1, T num2, OperatorType type){
+    public Number calculate(Number num1, Number num2, OperatorType type){
         Calculator calculator = switch (type) {
             case PLUS -> this::plus;
             case MINUS -> this::minus;
