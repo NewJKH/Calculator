@@ -1,4 +1,4 @@
-package org.calculator.level3.service;
+package org.calculator.level3.model;
 
 @FunctionalInterface
 public interface Calculator {
