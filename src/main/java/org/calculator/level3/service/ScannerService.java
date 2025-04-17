@@ -1,6 +1,7 @@
 package org.calculator.level3.service;
 
 import org.calculator.level3.enums.OperatorType;
+import org.calculator.level3.repository.ResultRepository;
 import org.calculator.level3.util.InputParser;
 
 import java.util.Scanner;
@@ -8,9 +9,11 @@ import java.util.Scanner;
 public class ScannerService {
     private final Scanner scanner;
     private final InputParser inputParser;
+    private final ResultRepository resultRepository;
 
-    public ScannerService(Scanner scanner) {
+    public ScannerService(Scanner scanner, ResultRepository resultRepository) {
         this.scanner = scanner;
+        this.resultRepository = resultRepository;
         this.inputParser = new InputParser();
     }
 
@@ -32,5 +35,9 @@ public class ScannerService {
             return false;
         }
         return true;
+    }
+
+    public void writeContentByLog(Number num1, Number num2, OperatorType type){
+        resultRepository.writeContent(num1,num2,type);
     }
 }

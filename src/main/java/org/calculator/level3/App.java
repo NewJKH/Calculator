@@ -1,6 +1,7 @@
 package org.calculator.level3;
 
 import org.calculator.level3.enums.OperatorType;
+import org.calculator.level3.repository.ResultRepository;
 import org.calculator.level3.service.CalculationService;
 import org.calculator.level3.service.ScannerService;
 
@@ -28,17 +29,17 @@ public class App {
 
     public static void main(String[] args) {
         // App 이 Controller 라고 생각
-        ScannerService scannerService = new ScannerService(new Scanner(System.in));
-        CalculationService calculationService = new CalculationService();
+        ResultRepository resultRepository = new ResultRepository();
+        ScannerService scannerService = new ScannerService(new Scanner(System.in),resultRepository);
+        CalculationService calculationService = new CalculationService(resultRepository);
         do {
             try {
                 Number val1 = scannerService.getNumber(" 첫번째 숫자를 입력해주세요: ");
                 OperatorType type = scannerService.getOperator(" 연산자 [ + , -, *, / ]: ");
                 Number val2 = scannerService.getNumber(" 두번째 숫자를 입력해주세요: ");
 
-                System.out.println(val1.doubleValue());
-                System.out.println(type.name());
-                System.out.println(val2.doubleValue());
+                Number number = calculationService.calculate(val1,val2,type);
+
             }catch (IllegalArgumentException e){
                 System.out.println(e.getMessage());
             }

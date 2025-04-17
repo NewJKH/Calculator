@@ -4,13 +4,13 @@ import org.calculator.level3.enums.OperatorType;
 
 public class InputParser {
     /**
-     * @param obj 일단 모든 값을 String 이든 Number 이든 다 받게 설정하고 안에서 파싱
+     * @param t 일단 모든 값을 String 이든 Number 이든 다 받게 설정하고 안에서 파싱
      *            근데 어차피.... Scanner 에서는 String 이라면 Number 을 인식해도 되는건가?
      * @return Number 또는 에외
      */
-    public Number parseNumber(Object obj) {
-        if (obj instanceof Number number) return number;
-        if (obj instanceof String str)
+    public <T> Number parseNumber(T t) {
+        if (t instanceof Number number) return number;
+        if (t instanceof String str)
             try { return Double.parseDouble(str); }
             catch (NumberFormatException ignored) {  }
 
