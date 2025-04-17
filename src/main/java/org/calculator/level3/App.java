@@ -43,7 +43,9 @@ public class App {
                 Number val2 = scannerService.getNumber(" 두번째 숫자를 입력해주세요: ");
 
                 Number result = calculationService.calculate(val1,val2,type);
+                System.out.println(result.doubleValue());
                 resultService.writeLog(val1,val2,type,result);
+                resultService.printLog(0);
 
             }catch (IllegalArgumentException e){
                 System.out.println(e.getMessage());

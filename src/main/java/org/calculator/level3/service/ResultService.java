@@ -12,8 +12,9 @@ public class ResultService {
     }
 
     public void writeLog(Number val1, Number val2, OperatorType type, Number val3) {
+        int size = resultRepository.getAllLogs().size();
         resultRepository.addLog(
-                resultRepository.getAllLogs().size()-1,
+                size == 0 ? 0:size-1,
                 new Result(val1, val2, type, val3)
         );
     }
