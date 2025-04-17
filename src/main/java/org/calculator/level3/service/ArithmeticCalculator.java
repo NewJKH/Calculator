@@ -10,7 +10,7 @@ public class ArithmeticCalculator {
             case PLUS -> this::plus;
             case MINUS -> this::minus;
             case MULTIPLY -> this::multiply;
-            case DIVIDE -> (x, y) -> (y.doubleValue() == 0) ? null : divide(x, y);
+            case DIVIDE -> this::divide;
         };
 
         return calculator.calculate(num1, num2);
@@ -28,7 +28,7 @@ public class ArithmeticCalculator {
     }
 
     private double divide(Number a, Number b) {
-        if (b.doubleValue() == 0) return Double.NaN;
+        if (b.doubleValue() == 0) throw new ArithmeticException("0으로 나눌 수 없습니다.");
         return a.doubleValue() / b.doubleValue();
     }
 }
