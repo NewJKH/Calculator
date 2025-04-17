@@ -4,5 +4,23 @@ public enum OperatorType {
     PLUS,
     MINUS,
     MULTIPLY,
-    DIVIDE,
+    DIVIDE;
+
+    public static String format(OperatorType type){
+        switch (type){
+            case PLUS -> {
+                return "+";
+            }
+            case MINUS -> {
+                return "-";
+            }
+            case DIVIDE -> {
+                return "/";
+            }
+            case MULTIPLY -> {
+                return "*";
+            }
+        }
+        return "NaN";
+    }
 }
