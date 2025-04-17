@@ -31,6 +31,7 @@ public class ResultRepository {
     public void addLog(int id, Result result){
         results.put(id,result);
     }
+    
     public void removeLog(int id){
         results.remove(id);
     }

@@ -24,7 +24,7 @@ public class ResultService {
                 .ifPresentOrElse(
                         log->
                             System.out.println(log.firstValue().doubleValue()
-                                            +" "+OperatorType.format(log.type())
+                                            +" "+log.type().getSign()
                                             +" "+log.secValue().doubleValue()
                                             +" ="+log.result().doubleValue()),
                         ()-> System.out.println(" 해당 로그는 존재하지 않습니다. "));
@@ -35,7 +35,7 @@ public class ResultService {
         resultRepository.getAllLogs()
                 .forEach(log->
                     System.out.println(log.firstValue().doubleValue()
-                            +" "+OperatorType.format(log.type())
+                            +" "+log.type().getSign()
                             +" "+log.secValue().doubleValue()
                             +" ="+log.result().doubleValue()));
     }

@@ -1,26 +1,36 @@
 package org.calculator.level3.enums;
 
 public enum OperatorType {
-    PLUS,
-    MINUS,
-    MULTIPLY,
-    DIVIDE;
+    PLUS("+"),
+    MINUS("-"),
+    MULTIPLY("*"),
+    DIVIDE("/");
 
-    public static String format(OperatorType type){
-        switch (type){
-            case PLUS -> {
-                return "+";
+    private final String sign;
+
+    OperatorType(String sign) {
+        this.sign = sign;
+    }
+
+    public String getSign() {
+        return this.sign;
+    }
+
+    public static OperatorType of(String s) {
+        switch (s) {
+            case "+", "PLUS", "ADD" -> {
+                return OperatorType.PLUS;
             }
-            case MINUS -> {
-                return "-";
+            case "-", "MINUS", "REMOVE" -> {
+                return OperatorType.MINUS;
             }
-            case DIVIDE -> {
-                return "/";
+            case "/", "DIVIDE", "DV" -> {
+                return OperatorType.DIVIDE;
             }
-            case MULTIPLY -> {
-                return "*";
+            case "*", "X", "MULTI" -> {
+                return OperatorType.MULTIPLY;
             }
         }
-        return "NaN";
+        throw new IllegalArgumentException("연산자 타입이 아닙니다.");
     }
 }

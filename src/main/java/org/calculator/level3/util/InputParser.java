@@ -15,20 +15,6 @@ public class InputParser {
 
 
     public OperatorType parseOperatorType(String symbol){
-        switch (symbol.toUpperCase()){
-            case "+", "PLUS", "ADD" -> {
-                return OperatorType.PLUS;
-            }
-            case "-", "MINUS", "REMOVE" -> {
-                return OperatorType.MINUS;
-            }
-            case "/", "DIVIDE", "DV" -> {
-                return OperatorType.DIVIDE;
-            }
-            case "*", "X", "MULTI" -> {
-                return OperatorType.MULTIPLY;
-            }
-        }
-        throw new IllegalArgumentException("연산자 타입이 아닙니다.");
+        return OperatorType.of(symbol.toUpperCase());
     }
 }
