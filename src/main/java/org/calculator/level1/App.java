@@ -12,7 +12,7 @@ public class App {
     5. Scanner 사용하여 사칙연산 기호를 전달 받을 수 있다.
 
     error
-    연산 오류가 발생할 경우 해당 오류에 대한 내용을 정제하여 출력
+    연산 오류가 발생할 경우 해당 오류에 대한 내용을 정제하여 출력 커밋
 
      */
     public static void main(String[] args) {
